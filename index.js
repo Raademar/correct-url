@@ -1,6 +1,7 @@
 const userPassedURL = document.querySelector('#userPassedURL')
 const submitURL = document.querySelector('#submitURL')
 
+
 const set = (id, text) => {
   document
     .getElementById(id.replace('#', ''))
@@ -26,24 +27,55 @@ const set = (id, text) => {
 submitURL.addEventListener('click', (e) => {
   e.preventDefault()
   const url = userPassedURL.value
-  const domain = new URL(url)
+  const domain = new URL(url).hostname
   const hostname = 
-    domain.hostname.split('')
+    domain.split('')
     .sort(() => 0.5 - Math.random())
     .join('')
 
-  Object.defineProperties(urlObject, {
-    domain: {
-      value: hostname
-    },
-  })
-  console.log(urlObject)
+  //urlObject[0].alternatives.push(hostname)
+  //console.log(urlObject)
+  let options = {
+    threshold: 0.3,
+    keys: ['domain', 'alternatives']
+  };
+  let fuse = new Fuse(urlObject, options)
+  
+  let result = fuse.search(domain)
+
+  window.location.replace(`https://${result[0].domain}`) 
+  console.log(result)
 })
 
 
-let urlObject = {
-  facebook: 
-    [
-      "f"
-    ] 
-}
+let urlObject = [{
+  'domain': 'facebook.com',
+  'alternatives': [
+    "facebook.se",
+    "facebook.org",
+    "facebook.net",
+    "facebook.co.uk",
+    "ckafcobemo.o",
+    "fo.kcacemoob",
+    "fomaccbek.oo",
+    "aoofkccoem.b",
+    "e.mokcoobcfa",
+    "koob.omeccaf",
+    "bfcaoceomok.",
+    "bkfeooa.mcco",
+    "omf.aokccebo",
+    "cofbacko.ome",
+    "coc.ebmokoaf",
+    "kfomcaoocb.e",
+    "eoo.afbcockm",
+    ],
+  },
+  { 
+    'domain': 'twitter.com',
+    'alternatives':
+    'twiter.cmo'
+  },
+]
+
+
+
