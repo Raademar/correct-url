@@ -1,0 +1,23 @@
+{
+  "name": "chromeextension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "fuse.js": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raademar/correct-url.git"
+  },
+  "author": "Mattias Rådemar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raademar/correct-url/issues"
+  },
+  "homepage": "https://github.com/Raademar/correct-url#readme"
+}
