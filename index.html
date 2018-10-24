@@ -5,27 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.css">
   <link rel="stylesheet" href="main.css">
   <title>Chrome Extension</title>
 </head>
 <body>
   <div class="container">
-    <h1>Input URL</h1>
+    <!-- <h1>Input URL</h1>
     <div class="input-holder">
       <input type="text" name="url" id="userPassedURL">
       <button type="submit" class="btn waves-effect waves-light" id="submitURL">Submit</button>
+    </div> -->
+    <div class="switch margin-top">
+      <label>
+        HTTP or HTTPS
+        <input type="checkbox">
+        <span class="lever"></span>
+        HTTPS Only
+      </label>
     </div>
-    <dl>
-      <dt class="col s3 fat">Protocol</dt>
-      <dd id="protocol" class="col s9"></dd>
-      <dt class="col s3">Domain</dt>
-      <dd id="domain" class="col s9"></dd>
-      <dt class="col s3">Path</dt>
-      <dd id="path" class="col s9"></dd>
-      <dt class="col s3">Search</dt>
-      <dd id="search" class="col s9"></dd>
-    </dl>
+    <div class="slider-outer-container">
+      <div class="slider-inner">
+        <form action="#" class="margin-top">
+          <h6>How exact would you like your matches to be?</h6>
+          <p>0 will only redirect on exact matches - 1 will redirect everything.</p>
+          <p class=" grey-text darken-2">* For the best experience we recommend using a threshold value of 0.2 - 0.4.</p>
+          <p class="range-field">
+            <input type="range" id="thresholdSlider" min="0" max="1" step="0.1"/>
+          </p>
+        </form>
+      </div>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/mattiasrademar"><img src="Logos/PNG/Twitter_Logo_Blue.png" alt="titter-link"></a>
+      <a href="https://github.com/raademar/correct-url"><img src="Logos/PNG/GitHub-Mark-64px.png" alt="github-link"></a>
+    </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="index.js"></script>

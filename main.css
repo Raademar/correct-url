@@ -1,3 +1,26 @@
 dt::after {
   content: ": ";
 }
+
+.slider-outer-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.slider-inner {
+  width: 50%;
+}
+
+.margin-top {
+  margin-top: 25px;
+}
+
+.links {
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+
+.links img {
+  max-width: 25px;
+}

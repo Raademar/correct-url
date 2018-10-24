@@ -1,57 +1,19 @@
 const userPassedURL = document.querySelector('#userPassedURL')
 const submitURL = document.querySelector('#submitURL')
+let thresholdSlider = document.querySelector('#thresholdSlider')
 
-
-const set = (id, text) => {
-  document
-    .getElementById(id.replace('#', ''))
-    .innerHTML = text
-  }
-
-/* submitURL.addEventListener('click', (e) => {
-  e.preventDefault()
-  const url = userPassedURL.value
-
-  const a = new URL(url)
-
-  set('protocol', a.protocol)
-  set('domain', a.hostname)
-  set('path', a.pathname)
-  set('search', a.search)
-}) */
-
-
-// Get a randomization of the input URL and save to the urlObject.
-
-submitURL.addEventListener('click', (e) => {
-  e.preventDefault()
-  const url = userPassedURL.value
-  const domain = new URL(url).hostname
-
-  // const hostname = 
-  //   domain.split('')
-  //   .sort(() => 0.5 - Math.random())
-  //   .join('')
-
-  // urlObject[0].alternatives.push(hostname)
-  // console.log(urlObject)
-  
-  let options = {
-    threshold: 0.3,
-    keys: ['domain', 'alternatives']
-  };
-  let fuse = new Fuse(urlObject, options)
-  
-  let result = fuse.search(domain)
-
-  window.open(`https://${result[0].domain}`, '_blank')
-  console.log(result)
-})
 
 
 let urlObject = [
   {
-    "domain": "facebook.com/"
+    "domain": "facebook.com/",
+    "alternatives": [
+      "facebook.se",
+      "facebook.net",
+      "facebook.org",
+      "facebook.co.uk",
+      "facebook.gov",
+    ]
   },
   {
     "domain": "twitter.com/"
@@ -1551,3 +1513,39 @@ let urlObject = [
     "domain": "ticketmaster.com/"
   }
  ]
+
+const set = (id, text) => {
+  document
+    .getElementById(id.replace('#', ''))
+    .innerHTML = text
+  }
+
+let currentUrl = window.location.hostname
+if(currentUrl === 'chromeweb‌​data' && !window.location.hostname){
+  currentUrl = window.location.hostname || loadTimeData.data_.summary.hostName
+}
+thresholdSlider.addEventListener('input', () => {
+  options.threshold = parseFloat(thresholdSlider.value)
+  localStorage.setItem('threshold', options.threshold)
+})
+
+// const url = userPassedURL.value
+// const domain = new URL(url).hostname
+parsedThreshold = parseFloat(localStorage.getItem('threshold'))
+
+let options = {
+  threshold: parsedThreshold,
+  keys: ['domain', 'alternatives']
+};
+let fuse = new Fuse(urlObject, options)
+
+let result = fuse.search(currentUrl)
+
+window.open(`https://${result[0].domain}`, '_blank')
+console.log(result)
+
+
+
+
+console.log(currentUrl)
+
