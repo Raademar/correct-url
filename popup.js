@@ -1,7 +1,6 @@
-const userPassedURL = document.querySelector('#userPassedURL')
-const submitURL = document.querySelector('#submitURL')
-let thresholdSlider = document.querySelector('#thresholdSlider')
+chrome.runtime.onInstalled.addListener(function() {
 
+let thresholdSlider = document.querySelector('#thresholdSlider')
 
 
 let urlObject = [
@@ -1514,24 +1513,16 @@ let urlObject = [
   }
  ]
 
-const set = (id, text) => {
-  document
-    .getElementById(id.replace('#', ''))
-    .innerHTML = text
-  }
 
 let currentUrl = window.location.hostname
+
 if(currentUrl === 'chromeweb‌​data' && !window.location.hostname){
-  currentUrl = window.location.hostname || loadTimeData.data_.summary.hostName
-}
+  currentUrl = window.location.hostname || loadTimeData.data_.summary.hostName}
 thresholdSlider.addEventListener('input', () => {
   options.threshold = parseFloat(thresholdSlider.value)
-  localStorage.setItem('threshold', options.threshold)
-})
+  localStorage.setItem('threshold', options.threshold)})
 
-// const url = userPassedURL.value
-// const domain = new URL(url).hostname
-parsedThreshold = parseFloat(localStorage.getItem('threshold'))
+parsedThreshold = parseFloat(localStorage.getItem('threshold')) || 0.3
 
 let options = {
   threshold: parsedThreshold,
@@ -1549,3 +1540,4 @@ console.log(result)
 
 console.log(currentUrl)
 
+});

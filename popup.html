@@ -5,8 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.css">
-  <link rel="stylesheet" href="main.css">
+  <style>
+    body {
+      min-width: 300px;
+    }
+
+    dt::after {
+      content: ": ";
+    }
+
+    .slider-outer-container {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .slider-inner {
+      width: 80%;
+    }
+
+    .margin-top {
+      margin-top: 25px;
+    }
+
+    .links {
+      display: flex;
+      align-content: flex-end;
+      justify-content: flex-end;
+    }
+
+    .links img {
+      max-width: 25px;
+    }
+  </style>
   <title>Chrome Extension</title>
 </head>
 <body>
@@ -26,9 +56,9 @@
     </div>
     <div class="slider-outer-container">
       <div class="slider-inner">
-        <form action="#" class="margin-top">
           <h6>How exact would you like your matches to be?</h6>
           <p>0 will only redirect on exact matches - 1 will redirect everything.</p>
+        <form action="#" class="margin-top">
           <p class=" grey-text darken-2">* For the best experience we recommend using a threshold value of 0.2 - 0.4.</p>
           <p class="range-field">
             <input type="range" id="thresholdSlider" min="0" max="1" step="0.1"/>
@@ -41,9 +71,8 @@
       <a href="https://github.com/raademar/correct-url"><img src="Logos/PNG/GitHub-Mark-64px.png" alt="github-link"></a>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="index.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>

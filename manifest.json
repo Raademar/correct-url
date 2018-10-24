@@ -1,0 +1,27 @@
+{
+  "name": "Correct URL",
+  "version": "1.0",
+  "description": "Autocorrect you incorrect URL inputs.",
+  "permissions": ["declarativeContent", "storage"],
+  "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'",
+  "background": {
+    "scripts": ["popup.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/chrome_extension_128px.png",
+      "32": "images/chrome_extension_128px.png",
+      "48": "images/chrome_extension_128px.png",
+      "128": "images/Chrome_extension_128px.png"
+    }
+  },
+  "icons": {
+    "16": "images/chrome_extension_128px.png",
+    "32": "images/chrome_extension_128px.png",
+    "48": "images/chrome_extension_128px.png",
+    "128": "images/Chrome_extension_128px.png"
+  },
+  "manifest_version": 2
+}
